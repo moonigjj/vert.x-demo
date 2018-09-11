@@ -1,2 +1,2 @@
-# vert.x-web
+# vert.x-demo
 vert.x web demo
