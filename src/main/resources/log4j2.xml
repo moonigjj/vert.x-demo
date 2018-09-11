@@ -12,8 +12,8 @@
             <PatternLayout pattern="[%-d{yyyy-MM-dd HH:mm s,SSS}] [%t:%r] - [%5p] (%c.%M:%L) - %m%n"/>
         </console>
         <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，这个也挺有用的，适合临时测试用-->
-        <RollingFile name="RollingFileDebug" fileName="/data/logs/yun/yun_debug.log" append="true"
-                     filePattern="/data/logs/yun/yun_debug_%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="RollingFileDebug" fileName="/data/logs/web/yun_debug.log" append="true"
+                     filePattern="/data/logs/web/yun_debug%d{yyyy-MM-dd}-%i.log">
             <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="[%-d{yyyy-MM-dd HH:mm s,SSS}] [%t:%r] - [%5p] (%c:%L) - %m%n"/>
             <Policies>
@@ -22,9 +22,9 @@
             </Policies>
         </RollingFile>
         <!-- 这个会打印出所有的info及以下级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
-        <RollingFile name="RollingFileInfo" fileName="/data/logs/yun/yun_info.log"
+        <RollingFile name="RollingFileInfo" fileName="/data/logs/web/web_info.log"
                      append="true"
-                     filePattern="/data/logs/yun/yun_info_%d{yyyy-MM-dd}-%i.log">
+                     filePattern="/data/logs/web/web_info%d{yyyy-MM-dd}-%i.log">
             <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="[%-d{yyyy-MM-dd HH:mm s,SSS}] [%t:%r] - [%5p] (%c.%M:%L) - %m%n"/>
@@ -33,9 +33,9 @@
                 <SizeBasedTriggeringPolicy size="100 MB"/>
             </Policies>
         </RollingFile>
-        <RollingFile name="RollingFileWarn" fileName="/data/logs/yun/yun_warn.log"
+        <RollingFile name="RollingFileWarn" fileName="/data/logs/web/web_warn.log"
                      append="true"
-                     filePattern="/data/logs/yun/yun_warn_%d{yyyy-MM-dd}-%i.log">
+                     filePattern="/data/logs/web/web_warn%d{yyyy-MM-dd}-%i.log">
             <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="[%-d{yyyy-MM-dd HH:mm s,SSS}] [%t:%r] - [%5p] (%c.%M:%L) - %m%n"/>
             <Policies>
@@ -45,9 +45,9 @@
             <!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，这里设置了20 -->
             <DefaultRolloverStrategy max="20"/>
         </RollingFile>
-        <RollingFile name="RollingFileError" fileName="/data/logs/yun/yun_error.log"
+        <RollingFile name="RollingFileError" fileName="/data/logs/web/web_error.log"
                      append="true"
-                     filePattern="/data/logs/yun/yun_error_%d{yyyy-MM-dd}-%i.log">
+                     filePattern="/data/logs/web/web_error%d{yyyy-MM-dd}-%i.log">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="[%-d{yyyy-MM-dd HH:mm s,SSS}] [%t:%r] - [%5p] (%c.%M:%L) - %m%n"/>
             <Policies>
